@@ -16,7 +16,12 @@
 
 		<div class="row">
 			<div class="col-12">
-				<a href="<c:url value='/newAccount'/>"
+			
+			<c:url var="newLink" value='/weight/new'>
+				<c:param name="userId" value="1"></c:param>
+			</c:url>
+			
+				<a href="${newLink}"
 					class="btn btn-large	 btn-primary">Add new weight</a>
 			</div>
 
@@ -33,10 +38,10 @@
 				<tbody>
 				
 									<c:forEach var="weight" items="${weightList}">
-						<c:url var="updateLink" value="/edit">
+						<c:url var="updateLink" value="/weight/edit">
 							<c:param name="id" value="${weight.id}" />
 						</c:url>
-						<c:url var="deleteLink" value="/delete">
+						<c:url var="deleteLink" value="/weight/delete">
 							<c:param name="id" value="${weight.id}" />
 						</c:url>
 						<tr>

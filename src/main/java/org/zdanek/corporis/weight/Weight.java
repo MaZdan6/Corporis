@@ -41,11 +41,11 @@ public class Weight {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public Long getUser_id() {
+	public Long getUserId() {
 		return userId;
 	}
-	public void setUser_id(Long user_id) {
-		this.userId = user_id;
+	public void setUserId(Long userId) {
+		this.userId = userId;
 	}
 	public double getWeight() {
 		return weight;
