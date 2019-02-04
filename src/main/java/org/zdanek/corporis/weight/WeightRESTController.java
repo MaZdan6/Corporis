@@ -8,9 +8,12 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.Api;
@@ -28,15 +31,14 @@ public class WeightRESTController {
 	  = LoggerFactory.getLogger(WeightController.class);
 	
 	@RequestMapping(value="/getWeightList", method=RequestMethod.GET)
-	public ResponseEntity<Page<Weight>> getWeight(@RequestBody
-			WeightDTO weightDTO){
+	public ResponseEntity<Page<Weight>> getWeight(@RequestParam int page, @RequestParam int size, @RequestParam long userId){
 		logger.debug("getWeight");
-		logger.debug("weightDTO: {}"+weightDTO.toString());
 		
+		Pageable pageRequest= PageRequest.of(page, size);
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		logger.debug(auth.toString());
 		
-		Pageable page= PageRequest.of(weightDTO.getPageNumber(), weightDTO.getPageSize());
-		
-		Page<Weight> weightList=weightService.findByUserId(weightDTO.getWeight().getUserId(), page);
+		Page<Weight> weightList=weightService.findByUserId(userId, pageRequest);
 		
 		return new ResponseEntity<Page<Weight>>(weightList, HttpStatus.OK);
 		

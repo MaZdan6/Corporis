@@ -34,7 +34,7 @@ public class WeightService {
     
     
     public Page<Weight> findByUserId(Long userId, Pageable page) {
-    	logger.debug("find objects by id: {}, page:{}", userId,page);
+    	logger.debug("find objects by UserId: {}, page:{}", userId,page);
     	return weightRepository.findByUserId(userId,page);
 	}
 

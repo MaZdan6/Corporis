@@ -43,10 +43,10 @@ public class WeightServiceTest {
 		
 		
 		Pageable firstPageWithTwoElements = PageRequest.of(0, 2);
-		List<Weight> weightList= weightService.findByUserId(new Long(1), firstPageWithTwoElements);
+		//List<Weight> weightList= weightService.findByUserId(new Long(1), firstPageWithTwoElements);
 		
 		
-		weightList.stream().forEach(weight-> logger.debug(weight.toString()));
+		//weightList.stream().forEach(weight-> logger.debug(weight.toString()));
 		logger.debug("Success");
 		assert(true);
 	}
