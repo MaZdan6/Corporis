@@ -34,7 +34,7 @@ public class WeightRESTController {
 	public ResponseEntity<Page<Weight>> getWeight(@RequestParam int page, @RequestParam int size, @RequestParam long userId){
 		logger.debug("getWeight");
 		
-		Pageable pageRequest= PageRequest.of(page, size);
+		Pageable pageRequest= PageRequest.of(page-1, size);
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		logger.debug(auth.toString());
 		

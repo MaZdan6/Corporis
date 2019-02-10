@@ -6,7 +6,8 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 <!-- tabulator -->
-<link rel="stylesheet" href="https://unpkg.com/tabulator-tables@4.1.4/dist/css/tabulator.min.css" integrity="sha384-fUqBqrrBFqNdUfbEBq/dvxWIcBJyv539EUkTBlZeXdWnW/K7nZE4LZ6jCoq7fEo/" crossorigin="anonymous">
+<!-- <link rel="stylesheet" href="https://unpkg.com/tabulator-tables@4.1.4/dist/css/tabulator.min.css" integrity="sha384-fUqBqrrBFqNdUfbEBq/dvxWIcBJyv539EUkTBlZeXdWnW/K7nZE4LZ6jCoq7fEo/" crossorigin="anonymous"> -->
+<link rel="stylesheet" href="https://unpkg.com/tabulator-tables@4.1.4/dist/css/bootstrap/tabulator_bootstrap.min.css" integrity="sha384-NL5tCyJM3SXIEo020XN2toE6bmIQzWIxnIfTpA62tPsufwwrvVeH3PxYPYAnvE2j" crossorigin="anonymous">
 <script src="https://unpkg.com/tabulator-tables@4.1.4/dist/js/tabulator.min.js" integrity="sha384-M2J9eFsA/XxCQ7iGn0q1surLJgejwKUmroJrwO1NhSsq2mPiBskMKxmAjEcl56b2" crossorigin="anonymous"></script>
 
 <div class="row">

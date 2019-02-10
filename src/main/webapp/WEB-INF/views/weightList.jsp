@@ -67,45 +67,13 @@
 			
 			<div id="example-table"></div>
 			<script type="text/javascript">
-			//define some sample data
-			 var tabledata = [
-			        {
-			            "id": 6,
-			            "date": "2019-01-01T19:56:38.656+0000",
-			            "userId": 1,
-			            "weight": 90.1
-			        },
-			        {
-			            "id": 7,
-			            "date": "2019-01-02T19:56:47.747+0000",
-			            "userId": 1,
-			            "weight": 91.1
-			        },
-			        {
-			            "id": 8,
-			            "date": "2019-01-03T19:56:54.501+0000",
-			            "userId": 1,
-			            "weight": 92.1
-			        },
-			        {
-			            "id": 9,
-			            "date": "2019-01-04T19:57:01.232+0000",
-			            "userId": 1,
-			            "weight": 93.1
-			        },
-			        {
-			            "id": 10,
-			            "date": "2019-01-05T19:57:15.641+0000",
-			            "userId": 1,
-			            "weight": 94.1
-			        }
-			    ];
+
 			
 			
 			//create Tabulator on DOM element with id "example-table"
 			 var table = new Tabulator("#example-table", {
-			  	height:205, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
-			  	data:tabledata, //assign data to table
+			  	//height:205, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
+			  	//data:tabledata, //assign data to table
 			  	layout:"fitColumns", //fit columns to width of table (optional)
 			  	columns:[ //Define Table Columns
 			 	 	{title:"id", field:"id", width:150},
