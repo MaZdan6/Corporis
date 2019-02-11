@@ -32,7 +32,7 @@
 			</div>
 
 
-			<table class="table table-bordered table-hover">
+			<%-- <table class="table table-bordered table-hover">
 				<thead class="bg-success">
 					<tr>
 						<th>id</th>
@@ -59,27 +59,26 @@
 						</tr>
 					</c:forEach>
 				</tbody>
-			</table>
+			</table> --%>
 			
 			
 			
 			
 			
 			<div id="example-table"></div>
+			
+			<c:url var="getWeightList" value='/api/weight/getWeightList'>
+				</c:url>
 			<script type="text/javascript">
-
-			
-			
 			//create Tabulator on DOM element with id "example-table"
 			 var table = new Tabulator("#example-table", {
-			  	//height:205, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
-			  	//data:tabledata, //assign data to table
 			  	layout:"fitColumns", //fit columns to width of table (optional)
 			  	columns:[ //Define Table Columns
 			 	 	{title:"id", field:"id", width:150},
 			 	 	{title:"date", field:"date", sorter:"date", align:"center", width:250},
 			 	 	{title:"userId", field:"userId"},
-			 	 	{title:"weight", field:"weight"}
+			 	 	{title:"weight", field:"weight"},
+			 	 	{title:"id", field:"id", align:"center", editor:true, formatter:"cross"}
 			 	 	
 			  	],
 			  	rowClick:function(e, row){ //trigger an alert message when the row is clicked
@@ -87,7 +86,7 @@
 			  	},
 			  	
 			  	 pagination:"remote", //enable remote pagination
-			     ajaxURL:"http://localhost:8080/corporis/api/weight/getWeightList", //set url for ajax request
+			     ajaxURL:"${getWeightList}", //set url for ajax request
 			     ajaxParams:{userId:1}, //set any standard parameters to pass with the request
 			     paginationSize:5, //optional parameter to request a certain number of rows per page
 			     paginationDataReceived:{
@@ -98,33 +97,7 @@
 			</script>
 			
 			
-			<script type="text/javascript">
-			//define some sample data
-/*			 var tabledata = [
-			 	{id:1, name:"Oli Bob", age:"12", col:"red", dob:""},
-			 	{id:2, name:"Mary May", age:"1", col:"blue", dob:"14/05/1982"},
-			 	{id:3, name:"Christine Lobowski", age:"42", col:"green", dob:"22/05/1982"},
-			 	{id:4, name:"Brendon Philips", age:"125", col:"orange", dob:"01/08/1980"},
-			 	{id:5, name:"Margret Marmajuke", age:"16", col:"yellow", dob:"31/01/1999"},
-			 ];
-			
-			
-			//create Tabulator on DOM element with id "example-table"
- 			 var table = new Tabulator("#example-table", {
-			  	height:205, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
-			  	data:tabledata, //assign data to table
-			  	layout:"fitColumns", //fit columns to width of table (optional)
-			  	columns:[ //Define Table Columns
-			 	 	{title:"Name", field:"name", width:150},
-			 	 	{title:"Age", field:"age", align:"left", formatter:"progress"},
-			 	 	{title:"Favourite Color", field:"col"},
-			 	 	{title:"Date Of Birth", field:"dob", sorter:"date", align:"center"},
-			  	],
-			  	rowClick:function(e, row){ //trigger an alert message when the row is clicked
-			  		alert("Row " + row.getData().id + " Clicked!!!!");
-			  	},
-			 }); */
-			</script>
+		
 		</div>
 
 
