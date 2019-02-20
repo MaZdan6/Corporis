@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -41,6 +42,16 @@ public class WeightRESTController {
 		Page<Weight> weightList=weightService.findByUserId(userId, pageRequest);
 		
 		return new ResponseEntity<Page<Weight>>(weightList, HttpStatus.OK);
+		
+	}
+	
+	@RequestMapping(value="/delete", method=RequestMethod.GET)
+	public ResponseEntity<String> delete(@RequestParam("id") long id){
+		logger.debug("delete weight by id: {}",id);
+		
+		weightService.delete(id);
+		
+		return new ResponseEntity<String>("delete weight by id: "+id,HttpStatus.OK);
 		
 	}
 	

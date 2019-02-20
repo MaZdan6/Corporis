@@ -16,9 +16,9 @@
 <body>
 	<div class="container">
 		<%@include file="header.jsp"%>
-		
-		
-		
+
+
+
 
 		<div class="row">
 			<div class="col-12">
@@ -60,15 +60,18 @@
 					</c:forEach>
 				</tbody>
 			</table> --%>
-			
-			
-			
-			
-			
+
+
+
+
+
 			<div id="example-table"></div>
-			
+
 			<c:url var="getWeightList" value='/api/weight/getWeightList'>
-				</c:url>
+			</c:url>
+			<c:url var="deleteLink" value="/api/weight/delete">
+				<c:param name="id" value="${weight.id}" />
+			</c:url>
 			<script type="text/javascript">
 			//create Tabulator on DOM element with id "example-table"
 			 var table = new Tabulator("#example-table", {
@@ -78,12 +81,18 @@
 			 	 	{title:"date", field:"date", sorter:"date", align:"center", width:250},
 			 	 	{title:"userId", field:"userId"},
 			 	 	{title:"weight", field:"weight"},
-			 	 	{title:"id", field:"id", align:"center", editor:true, formatter:"cross"}
-			 	 	
+			 	 	{formatter:"buttonCross"
+			 	 		,field:"id"
+			 	 		,cellClick:function(e, cell, value, data,row){
+			 	 			var id=cell.getData().id
+			 	 			console.log("id: "+id);
+						 	//$("#example-table").tabulator("loadData", [data]); 
+			 	 		}
+			 	 		, width:30, align:"center"}			 	 	
 			  	],
-			  	rowClick:function(e, row){ //trigger an alert message when the row is clicked
+			  	/* rowClick:function(e, row){ //trigger an alert message when the row is clicked
 			  		alert("Row " + row.getData().id + " Clicked!!!!");
-			  	},
+			  	}, */
 			  	
 			  	 pagination:"remote", //enable remote pagination
 			     ajaxURL:"${getWeightList}", //set url for ajax request
@@ -92,15 +101,12 @@
 			     paginationDataReceived:{
 			         "data":"content", //change last_page parameter name to "max_pages"
 			         "last_page":"totalPages"
-			     } ,
+			     }
 			 });
 			</script>
-			
-			
-		
+
+
+
 		</div>
-
-
-
 </body>
 </html>
